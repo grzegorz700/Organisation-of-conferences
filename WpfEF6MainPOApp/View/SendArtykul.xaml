@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="WpfEF6MainPOApp.View.SendArtykul"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="700" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Wyślij artykuł" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" FontSize="36"/>
+
+        <Grid Margin="40,10,40,0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Temat:" Grid.Row="0" Grid.Column="1" />
+
+            <TextBlock Text="{Binding Temat}"
+                               Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="20,0,0,0"/>
+
+
+            <Image Source="Images/document.png"
+                           Grid.Row="2"
+                           Grid.RowSpan="2" Grid.Column="0" Height="70"/>
+            <TextBlock Text="Abstakt:" Grid.Row="2" Grid.Column="1" />
+
+            <TextBlock Text="{Binding Abstrakt}"
+                               Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="20,0,0,0"/>
+
+            <Image Source="Images/people.png"
+                           Grid.Row="4"
+                           Grid.RowSpan="2" Grid.Column="0" Height="70"/>
+            <TextBlock Text="Prelegenci:" Grid.Row="4" Grid.Column="1" />
+
+            <TextBlock Text="{Binding Prelegenci}"
+                               Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Margin="20,0,0,0"/>
+
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Margin="0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="Black" BorderThickness="1"    VerticalAlignment="Stretch" Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Zgloszony Artyuł"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" />
+
+                        <Image Source="Images/deadline.png"
+                           Grid.Column="0" Height="70" Grid.Row="1" Margin="0,5"/>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Termin wysłania pracy:"  VerticalAlignment="Center" Grid.Row="0" Margin="0,5,0,0" />
+                            <TextBlock Text="{Binding DeadlineArtykulu}"  VerticalAlignment="Center" Grid.Row="1" Margin="20,0,0,0"  />
+
+                        </Grid>
+
+                        <Image Source="Images/upload.png"
+                           Grid.Column="0" Height="70" Grid.Row="2" Margin="0,5"/>
+                        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding PlikArtukulu}"/>
+                            <TextBlock Text="{Binding DataWyslaniaPlikuArtukulu}" Margin="0,10,0,0"/>
+                        </StackPanel>
+
+
+
+                    </Grid>
+
+
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="1"    VerticalAlignment="Stretch" Grid.Column="1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Poprawiony Artyuł"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" />
+
+                        <Image Source="Images/deadline.png"
+                           Grid.Column="0" Height="70" Grid.Row="1" Margin="0,5"/>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Termin wysłania poprawki:"  VerticalAlignment="Center" Grid.Row="0" Margin="0,5,0,0" />
+                            <TextBlock Text="{Binding DeadlinePoprawki}"  VerticalAlignment="Center" Grid.Row="1" Margin="20,0,0,0"  />
+
+                        </Grid>
+
+                        <Image Source="Images/upload.png"
+                           Grid.Column="0" Height="70" Grid.Row="2" Margin="0,5"/>
+                        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding PlikPoprawki}"/>
+                            <TextBlock Text="{Binding DataWyslaniaPlikuPoprawki}" Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Grid>
+
+        <ProgressBar x:Name="ProgresBarFileUpload" Grid.Row="2" Minimum="0" Maximum="100" IsIndeterminate="True" Visibility="Hidden"/>
+
+        <Grid Grid.Row="3" Margin="20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="LeftButton" Content="Anuluj" Grid.Column="0" Click="btnCancel"/>
+            <Button x:Name="RightButton" Content="Wyslij Artykuł" Grid.Column="3" Click="btnSendArt"/>
+        </Grid>
+    </Grid>
+
+</UserControl>

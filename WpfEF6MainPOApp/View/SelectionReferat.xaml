@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="WpfEF6MainPOApp.View.SelectionReferat"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="700" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Wybór referatu" VerticalAlignment="Center" FontSize="36"/>
+
+        <StackPanel Grid.Row="1" Margin="20,0,26,0">
+            <TextBlock Text="Wybierz temat:"
+                       Margin="10,0,0,0"/>
+            <ComboBox 
+                      Margin="30,10,0,0" 
+                      VerticalAlignment="Top"
+                      Height="25"
+                        HorizontalContentAlignment="Stretch"
+                      ItemsSource="{Binding ListaTematowReferafow}"
+                      SelectedIndex="0" SelectionChanged="cb_selection_change"/>
+            <TextBlock Text="Informacje:"
+                       Margin="10,5,0,0"/>
+            <!--<Rectangle Fill="#FFF4F4F5"
+                       HorizontalAlignment="Left"
+                       Height="300"
+                       Margin="40,10,0,0"
+                       Stroke="Black"
+                       VerticalAlignment="Top"
+                       Width="600"/>-->
+
+            <Border BorderBrush="Black" BorderThickness="1"  Margin="30,10,0,0"  VerticalAlignment="Stretch">
+
+                <Grid Margin="0,10,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="Images/document.png"
+                           Grid.Row="0"
+                           Grid.RowSpan="2" Grid.Column="0" Height="70"/>
+                    <TextBlock Text="Abstakt:" Grid.Row="0" Grid.Column="1" />
+
+                    <TextBlock Text="{Binding Abstrakt}"
+                               Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="20,0,0,0"/>
+
+                    <Image Source="Images/people.png"
+                           Grid.Row="2"
+                           Grid.RowSpan="2" Grid.Column="0" Height="70"/>
+                    <TextBlock Text="Prelegenci:" Grid.Row="2" Grid.Column="1" />
+
+                    <TextBlock Text="{Binding Prelegenci}"
+                               Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="20,0,0,0"/>
+
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="Images/calendar.png"
+                           Grid.Column="0" Height="70"/>
+
+                        <TextBlock Text="{Binding Data}" Grid.Column="1" VerticalAlignment="Center" />
+                        <Image Source="Images/sala.png"
+                           Grid.Column="2" Height="70"/>
+                        <TextBlock Text="{Binding Sala}"  Grid.Column="3" VerticalAlignment="Center" />
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+        </StackPanel>
+
+        <Grid Grid.Row="2" Margin="20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Anuluj" Grid.Column="0" Click="btnCancel"/>
+            <Button Content="Wybierz" Grid.Column="2" Click="btnSelect"/>
+        </Grid>
+    </Grid>
+</UserControl>
